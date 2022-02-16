@@ -1,18 +1,13 @@
 <?php
 
-session_start();
-
+###Variables###
 //Accept strings from our HTML form.
-if(isset($_SESSION['inputString'])){
-    ### Variables ###
-    $inputString = $_SESSION['inputString'];
-    $alphaString = preg_replace("/[^A-Za-z]/", '', $inputString);
-    $stringLength = strlen($alphaString);
-    $alphaStringReversed = strrev($alphaString);
-}
+$inputString = $_REQUEST['string'];
+$alphaString = preg_replace("/[^A-Za-z]/", '', $inputString);
+$stringLength = strlen($alphaString);
+$alphaStringReversed = strrev($alphaString);
 
-
-### Functions ###
+###Functions###
 function palindromeAnalysis($stringToAnalyze){
     //Clean String Input of any non alphabetic characters
     $alphaString = preg_replace("/[^A-Za-z]/", '', $stringToAnalyze);
@@ -42,5 +37,4 @@ function vowelCount($stringToAnalyze){
     return $vowelCount;
 }
 
-### View ###
 require 'index-view.php';

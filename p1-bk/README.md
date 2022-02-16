@@ -16,8 +16,5 @@
 + <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text> - Text Input Form Field
 + <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit> - Form Submission Button
 
-### CSS/JS
-+ <https://getbootstrap.com/docs/5.1/getting-started/introduction/> - Easy Stylizing & Layout Formatting
-
 ## Notes for instructor
 Note that I didn't realize that there was a function already build in php that compares strings that is case insensitive. Therefore, when building the app originally I did all of that work in steps manually and then realized I could remove all of the unnecesarry additional steps of changing case.
