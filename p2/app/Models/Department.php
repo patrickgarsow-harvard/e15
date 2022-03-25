@@ -13,6 +13,8 @@ class Department extends Model
       'phone',
       'extension',
       'email',
+      'page_content',
+      'hidden',
   ];
 
   use HasFactory;

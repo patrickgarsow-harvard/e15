@@ -49,6 +49,14 @@
                             <label for="email">Email:</label>
                             <input id="email" class="form-control" v-model="form.email" />
                         </div>
+                        <div class="form-group">
+                            <input type="checkbox" v-model="form.hidden" v-bind:true-value=1 />
+                            <label for="form.hidden">Hidden</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="page_content">Page Content:</label>
+                            <textarea v-model="page_content"></textarea>
+                        </div>
                     <button type="submit" class="btn btn-block btn-primary">Submit</button>
                   </form>
                 </div>
@@ -86,6 +94,8 @@
                     phone: this.department.phone,
                     extension: this.department.extension,
                     email: this.department.email,
+                    page_content: this.department.page_content,
+                    hidden: this.department.hidden,
                 }),
             }
         },

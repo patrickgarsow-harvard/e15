@@ -47,11 +47,16 @@ class ContactsController extends Controller
     {
         Contact::create(
             Request::validate([
-             'name' => ['required'],
+             'first_name' => ['required'],
+             'last_name' => ['required'],
+             'address' => ['required'],
+             'city' => ['required'],
+             'state' => ['required'],
+             'zip' => ['required'],
            ])
          );
 
-         return redirect('admin/departments/index');
+         return redirect('admin/contacts/index');
     }
 
     /**

@@ -24,7 +24,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Contact Listing<Link href="/admin/contacts/create" type="button" class="btn btn-block btn-primary"><i class="fa-solid fa-plus"></i>New Department</Link></h3>
+                  <h3 class="card-title">Contact Listing<Link href="/admin/contacts/create" type="button" class="btn btn-block btn-primary"><i class="fa-solid fa-plus"></i>New Contact</Link></h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

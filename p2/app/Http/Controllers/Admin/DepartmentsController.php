@@ -85,6 +85,8 @@ class DepartmentsController extends Controller
                 'phone' => $department->phone,
                 'extension' => $department->extension,
                 'email' => $department->email,
+                'page_content' => $department->page_content,
+                'hidden' => $department->hidden,
             ],
           ]);
 
@@ -114,6 +116,8 @@ class DepartmentsController extends Controller
                 'phone' => [],
                 'extension' => [],
                 'email' => [],
+                'page_content' =>[],
+                'hidden' => [],
             ])
             );
 

@@ -19,7 +19,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Main/Home', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
@@ -31,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+###Admin Grouping###
 Route::prefix('admin')->name('admin')->middleware(['auth:sanctum', 'verified'])->group(function(){
   Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 

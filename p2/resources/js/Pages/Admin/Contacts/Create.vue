@@ -2,7 +2,7 @@
   <AdminAppLayout>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form @submit.prevent="submit">
+        <form @submit.prevent="store">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -259,53 +259,11 @@
 
     import { Head, Link, useForm } from '@inertiajs/inertia-vue3'
     import AdminAppLayout from '@/Layouts/AdminAppLayout.vue'
-    import { Inertia } from '@inertiajs/inertia';
 
     export default {
-        setup(){
-            const form = useForm({
-                company: null,
-                first_name: null,
-                middle_name: null,
-                last_name: null,
-                name_suffix: null,
-                nickname: null,
-                dob: null,
-                address: null,
-                address2: null,
-                city: null,
-                state: null,
-                zip: null,
-                zipext: null,
-                mail_adress: null,
-                mail_address2: null,
-                mail_city: null,
-                mail_state: null,
-                mail_zip: null,
-                mail_zipext: null,
-                primary_email: null,
-                alt_email: null,
-                cell_phone: null,
-                primary_phone: null,
-                work_phone: null,
-                fax: null,
-                website: null,
-                twitter_handle: null,
-                facebook_handle: null,
-                instagram_handle: null,
-                linkedin_handle: null,
-            })
-            function submit() {
-                form.post('/admin/departments/store', form)
-            }
-            return { form, submit }
+        props: {
+            contact: Object,
         },
-
-        // mounted() {
-        //     let daterangepickerscript = document.createElement('script')
-        //     daterangepickerscript.setAttribute('src', "js/inputmask/jquery.inputmask.min.js")
-        //     document.head.appendChild(daterangepickerscript)
-        // },
 
         components: {
             Head,
@@ -314,20 +272,45 @@
         },
 
         data() {
-        return {}
+            return {
+                form: this.$inertia.form({
+                    company: null,
+                    first_name: null,
+                    middle_name: null,
+                    last_name: null,
+                    name_suffix: null,
+                    nickname: null,
+                    dob: null,
+                    address: null,
+                    address2: null,
+                    city: null,
+                    state: null,
+                    zip: null,
+                    zipext: null,
+                    mail_address: null,
+                    mail_address2: null,
+                    mail_city: null,
+                    mail_state: null,
+                    mail_zip: null,
+                    mail_zipext: null,
+                    primary_email: null,
+                    alt_email: null,
+                    cell_phone: null,
+                    primary_phone: null,
+                    work_phone: null,
+                    fax: null,
+                    website: null,
+                    twitter_handle: null,
+                    facebook_handle: null,
+                    instagram_handle: null,
+                    linkedin_handle: null,
+                })
+            }
+        },
+        methods: {
+            store(){
+                this.form.post('/admin/contacts/store')
+            },
         },
     }
-
-
-    $(document).ready(function() {
-        $('#departments').DataTable();
-
-        //Date picker
-        $('input[name="dob"]').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 1901,
-            maxYear: parseInt(moment().format('YYYY'),10)
-        });
-    } );
 </script>
