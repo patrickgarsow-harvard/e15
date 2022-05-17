@@ -19,6 +19,7 @@ Password: W3lc0m3NEC275!
 - My application has a total of 45 tables of which for the evaulation of P3 6 tables are being used (articles, article_categories, article_article_category, contacts, departments, users)
 - There is a many to many relationship between articles and article_categories. The pivot table is called article_article_category.
 - There is a one to many relationship between contacts and departments. Each department can have many people (contacts) but each person only has one department.
+- There is a one to one relationship between contacts and users. A user is directly connected to a contact and connected for authentication by their email address.
 
 ## Outside resources
 
