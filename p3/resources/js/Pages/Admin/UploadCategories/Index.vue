@@ -24,7 +24,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Upload Listing<Link href="/admin/uploads/create" type="button" class="btn btn-block btn-primary"><i class="fa-solid fa-plus"></i>New File Upload</Link></h3>
+                  <h3 class="card-title">Upload Listing<Link href="/admin/upload_categories/create" type="button" class="btn btn-block btn-primary"><i class="fa-solid fa-plus"></i>New File Upload</Link></h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -39,11 +39,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="upload in uploads" :key="upload.id">
-                        <td><Link :href="`/admin/uploads/edit/${upload.id}`"><i class="fa-solid fa-pencil" color="blue"></i></Link> | <Link :href="`/admin/uploads/delete/${upload.id}`"><i class="fa-solid fa-circle-xmark" color="red"></i></Link></td>
-                        <td>{{ upload.id }}</td>
-                        <td>{{ upload.name }}</td>
-                        <td>{{ upload.description }}</td>
+                      <tr v-for="upload_category in upload_categories" :key="upload_category.id">
+                        <td><Link :href="`/admin/upload_categories/edit/${upload_category.id}`"><i class="fa-solid fa-pencil" color="blue"></i></Link> | <Link :href="`/admin/upload_categoryies/delete/${upload_category.id}`"><i class="fa-solid fa-circle-xmark" color="red"></i></Link></td>
+                        <td>{{ upload_category.id }}</td>
+                        <td>{{ upload_category.name }}</td>
+                        <td>{{ upload_category.description }}</td>
                       </tr>
                     </tbody>
                     <tfoot>
@@ -71,7 +71,7 @@
 
   export default defineComponent({
     props: {
-      uploads: Object,
+      upload_categories: Object,
       },
 
       components: {

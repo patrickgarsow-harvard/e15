@@ -6,6 +6,7 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -21,3 +22,5 @@ createInertiaApp({
 });
 
 InertiaProgress.init({ color: '#4B5563' });
+//CKEditor Global Enablement of Component
+Vue.createApp( { /* options */ } ).use( CKEditor ).mount( /* DOM element */ );

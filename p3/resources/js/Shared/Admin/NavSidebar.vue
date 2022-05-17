@@ -108,6 +108,33 @@
               </li>
             </ul>
           </li>
+          <!-- Gallery -->
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-calendar-days nav-icon"></i>
+              <p>Galleries<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/events/index" class="nav-link">
+                    <i class="fa-solid fa-file nav-icon"></i>
+                    <p>Photos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/events/past" class="nav-link">
+                  <i class="fa-solid fa-copy nav-icon"></i>
+                  <p>Galleries</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/events/index" class="nav-link">
+                    <i class="fa-solid fa-file nav-icon"></i>
+                    <p>Gallery Categories</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <!-- Application Pages Menu Items -->
           <li class="nav-item">
             <a href="#" class="nav-link">

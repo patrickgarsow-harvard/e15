@@ -7,10 +7,14 @@ window._ = require('lodash');
  */
 
 import '@popperjs/core'
+import Dropzone from 'dropzone';
 
 const bootstrap = require('bootstrap')
 
 window.bootstrap = bootstrap
+
+window.Dropzone = require('dropzone');
+Dropzone.autoDiscover = false;
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

@@ -249,22 +249,22 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header">
-                            <h3 class="card-title">Other Details / Options</h3>
+                                <h3 class="card-title">Other Details / Options</h3>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <input type="checkbox" v-model="form.is_employee" v-bind:true-value="`if(this.employee.id > 0){ document.write(1); }`"  />
-                                                <label for="form.is_employee">Employee</label>
-                                            </div>
-                                        </div>
-                                        <div v-if="this.employee.id > 0" class="col-6">
-                                            <Link :href="`/admin/employee/edit/${employee.id}`" class="btn btn-block btn-primary">Edit Employee Info</Link>
+                            <!-- <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <input type="checkbox" v-model="form.is_employee" v-bind:true-value="`if(this.employee.id > 0){ document.write(1); }else{document.write(0)}`"  />
+                                            <label for="form.is_employee">Employee</label>
                                         </div>
                                     </div>
-                            </div>
+                                    <div v-if="this.employee.id > 0" class="col-6">
+                                        <Link :href="`/admin/employee/edit/${employee.id}`" class="btn btn-block btn-primary">Edit Employee Info</Link>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 <!-- </form> -->

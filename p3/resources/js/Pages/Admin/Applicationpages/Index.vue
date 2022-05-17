@@ -69,7 +69,7 @@
 
   export default defineComponent({
     props: {
-      contacts: Object,
+      applicationpages: Object,
       },
 
       components: {

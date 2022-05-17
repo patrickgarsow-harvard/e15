@@ -18,4 +18,9 @@ class Article extends Model
         'gallery_id',
         'keywords',
     ];
+
+    public function article_categories()
+    {
+        return $this->belongsToMany(ArticleCategory::class);
+    }
 }

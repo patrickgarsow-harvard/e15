@@ -7,6 +7,19 @@
 Default User: pgarsow@northeasterncomputer.net
 Password: W3lc0m3NEC275!
 
+## Feature Summary
+
+- Visitors can register & login
+- Users can add/edit/delete departments.
+- Users can add other contacts, edit contacts including their information, and delete contacts.
+- Users can add/edit/delete article categories and articles
+- Logged in users can view the documentation by using the documentation link in the administrative panel.
+
+## Database Summary
+- My application has a total of 45 tables of which for the evaulation of P3 6 tables are being used (articles, article_categories, article_article_category, contacts, departments, users)
+- There is a many to many relationship between articles and article_categories. The pivot table is called article_article_category.
+- There is a one to many relationship between contacts and departments. Each department can have many people (contacts) but each person only has one department.
+
 ## Outside resources
 
 ### References / Packages
@@ -20,6 +33,13 @@ Password: W3lc0m3NEC275!
 ### Laravel
 + <https://spatie.be/docs/laravel-permission/v5/advanced-usage/seeding> - Database seeding explained.
 + <https://laravel.com/docs/9.x/eloquent> - Eloquent Objection-relational mapper
+
+### VueJS
++ <https://www.itsolutionstuff.com/post/laravel-vue-js-file-upload-exampleexample.html> - How to work with a file upload
++ <https://appdividend.com/2022/02/28/laravel-file-upload/> - Another example of uploading files in Laravel
+
+### CyberPanel Specific
++ <https://community.cyberpanel.net/t/how-to-setup-a-laravel-application-on-cyberpanel/30667> - Using CyberPanel
 
 ### JS
 + <https://vue-chartjs.org/guide/#npm> - Using chart.js with vue

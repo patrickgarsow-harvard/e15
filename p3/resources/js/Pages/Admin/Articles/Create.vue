@@ -8,7 +8,7 @@
             <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                <h1>Application Page <button type="submit" class="btn btn-block btn-primary">Submit</button></h1>
+                <h1>Article <button type="submit" class="btn btn-block btn-primary">Submit</button></h1>
                 </div>
                 <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -74,7 +74,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="page_content">Page Content:</label>
-                                                <textarea id="page_content" class="form-control" v-model="form.page_content"></textarea>
+                                                <ckeditor :editor="editor" v-model="form.page_content" :config="editorConfig"></ckeditor>
                                             </div>
                                         </div>
                                     </div>
@@ -95,20 +95,27 @@
 
     import { Head, Link, useForm } from '@inertiajs/inertia-vue3'
     import AdminAppLayout from '@/Layouts/AdminAppLayout.vue'
+    import CKEditor from '@ckeditor/ckeditor5-vue'
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
     export default {
         props: {
             article: Object,
+            article_categories: Object,
         },
 
         components: {
             Head,
             Link,
             AdminAppLayout,
+            ckeditor: CKEditor.component
         },
 
         data() {
             return {
+                editor: ClassicEditor,
+                editorData: {},
+                editorConfig: {},
                 form: this.$inertia.form({
                     name: null,
                     short: null,

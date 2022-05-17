@@ -21,7 +21,7 @@
         </section>
         <section class="content">
             <div class="container-fluid">
-            <div class="row mb-2">
+                <div class="row mb-2">
                 <!-- <form @submit.prevent="submit"> -->
                     <div class="col-sm-6">
                         <div class="card">
@@ -30,14 +30,6 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="name">File Upload</label>
-                                                <input type="file" id="name" class="form-control"/>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
@@ -54,57 +46,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="start_datetime">Start Date/Time:</label>
-                                                <input id="start_datetime" name="start_datetime" class="form-control" v-model="form.start_datetime" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="end_datetime">End Date/Time:</label>
-                                                <input id="end_datetime" name="end_datetime" class="form-control" v-model="form.end_datetime" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                <button type="submit" class="btn btn-block btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-header">
-                            <h3 class="card-title">Event Information</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="gallery_id">Gallery:</label>
-                                                <select v-model="form.gallery_id">
-                                                    <option v-for="gallery in galleries" :key="gallery.id">{{ gallery.name }}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="gallery_id">Event Category:</label>
-                                                <input id="gallery_id" class="form-control" v-model="form.gallery_id" />
-                                            </div>
-                                        </div>
-                                    </div>
                                 <button type="submit" class="btn btn-block btn-primary">Submit</button>
                             </div>
                         </div>
                     </div>
                 <!-- </form> -->
-            </div>
+                </div>
             </div>
         </section>
         </form>
@@ -165,7 +112,7 @@
         },
         methods: {
             store(){
-                this.form.post('/admin/events/store')
+                this.form.post('/admin/upload_categories/store')
             },
         },
     }

@@ -5,6 +5,6 @@
 - [First Section](#section-1)
 
 <a name="section-1"></a>
-## First Section
+## Welcome to the Documentation System For SynTMS
 
-Write something cool.. 🦊
+Use the navigation bar to the left to find the documentation.

@@ -12,4 +12,9 @@ class ArticleCategory extends Model
         'name',
         'description',
     ];
+
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class);
+    }
 }

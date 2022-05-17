@@ -2,7 +2,7 @@
   <AdminAppLayout>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form @submit.prevent="store">
+        <form @submit.prevent="store" enctype="multipart/form-data">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -77,9 +77,18 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="upload">
+                                                    @csrf
+                                                    <input type="file" class="custom-file-input" id="upload" name="upload" v-on:change="onFileChange">
                                                     <label class="custom-file-label" for="upload">Choose file</label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6" v-for="upload_category in upload_categories" :key="upload_category.id">
+                                            <div class="form-group">
+                                                <input type="checkbox" v-model="form.upload_categories" v-bind:true-value="upload_category.id"  />
+                                                <label for="form.upload_categories">{{upload_category.name}}</label>
                                             </div>
                                         </div>
                                     </div>
@@ -116,9 +125,6 @@
             format: 'M/DD/Y hh:mm A'
             }
         });
-    });
-
-    $(function () {
         bsCustomFileInput.init();
     });
 
@@ -127,7 +133,8 @@
 
     export default {
         props: {
-            event: Object,
+            upload: Object,
+            upload_categories: Object,
         },
 
         components: {
@@ -141,19 +148,20 @@
                 form: this.$inertia.form({
                     name: null,
                     description: null,
-                    start_datetime: null,
-                    end_datetime: null,
-                    gallery_id: null,
-                    page_content: null,
-                    event_category_id: null,
-                    hidden: null,
-                    listed: null,
+                    version: null,
+                    keywords: null,
+                    upload: null,
+                    upload_categories: null,
                 })
             }
         },
         methods: {
+            onFileChange(e){
+                console.log(e.target.files[0]);
+                this.form.upload = e.target.files[0];
+            },
             store(){
-                this.form.post('/admin/events/store')
+                this.form.post('/admin/uploads/store')
             },
         },
     }

@@ -21,8 +21,7 @@
         </section>
         <section class="content">
             <div class="container-fluid">
-            <div class="row mb-2">
-                <!-- <form @submit.prevent="submit"> -->
+                <div class="row mb-2">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
@@ -74,7 +73,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="page_content">Page Content:</label>
-                                                <textarea id="page_content" class="form-control" v-model="form.page_content"></textarea>
+                                                <ckeditor :editor="editor" v-model="form.page_content" :config="editorConfig"></ckeditor>
                                             </div>
                                         </div>
                                     </div>
@@ -82,8 +81,27 @@
                             </div>
                         </div>
                     </div>
-                <!-- </form> -->
-            </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                            <h3 class="card-title">Article Category Selection</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3" v-for="article_category in article_categories" :key="article_category.id">
+                                        <div class="form-group">
+                                            <input type="checkbox" v-model="form.select_article_categories" :id="article_category.name" :name="article_category.name" :value="article_category.id"/>
+                                            <label :for="form.select_article_categories">{{article_category.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         </form>
@@ -95,22 +113,29 @@
 
     import { Head, Link, useForm } from '@inertiajs/inertia-vue3'
     import AdminAppLayout from '@/Layouts/AdminAppLayout.vue'
+    import CKEditor from '@ckeditor/ckeditor5-vue'
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
     export default {
         props: {
             article: Object,
+            article_categories: Object,
         },
 
         components: {
             Head,
             Link,
             AdminAppLayout,
+            ckeditor: CKEditor.component,
         },
 
         remember: 'form',
 
         data() {
             return {
+                editor: ClassicEditor,
+                editorData: {},
+                editorConfig: {},
                 form: this.$inertia.form({
                     name: this.article.name,
                     short: this.article.short,
@@ -118,13 +143,17 @@
                     keywords: this.article.keywords,
                     gallery_id: this.article.gallery_id,
                     page_content: this.article.page_content,
-                })
+                    select_article_categories: [],
+                }),
             }
         },
         methods: {
             update(){
-                this.form.put(`/admin/article/update/${this.article.id}`)
+                this.form.put(`/admin/articles/update/${this.article.id}`)
             },
+            updateArticleArticleCategories(){
+                this.form.put(`/admin/articles/update_categories/${this.article.id}`)
+            }
         },
     }
 </script>

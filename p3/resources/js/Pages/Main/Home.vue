@@ -7,10 +7,12 @@
             <div class="table-row">
                 <!-- ################################################################################################ -->
                 <div class="table-cell">
-                <article><a href="#"><img src="images/covid19.jpg"></a>
-                    <h6 class="heading">Pandemic News Update</h6>
-                    <p>the Town Hall is now open, the drop box will remain and may also be utilized as it was during the closer period. For all fully vaccinated people, no mask is required to inter the building… if you have not been fully vaccinated then a mask is still required. Thank you again, for your patience during this trying time.</p>
-                    <footer><a href="#">Read More &raquo;</a></footer>
+                <article>
+                    <h6 class="heading">Planning Board Meeting</h6>
+                    <p>The Town of Schuyler Falls will have a Planning Board Meeting on May 12th, 2022 @ 6:30pm located at the town hall.</p>
+                    <a href="/assets/files/PlanningBoard-Agenda-12MAY2022pdf.pdf">Agenda</a>
+
+                    <footer></footer>
                 </article>
                 </div>
                 <div class="table-cell">
@@ -29,13 +31,13 @@
                     <footer><a href="#">Read More &raquo;</a></footer>
                 </article>
                 </div>
-                <div class="table-cell">
+                <!-- <div class="table-cell">
                 <article><a href="#"><img src="images/help_wanted.png"></a>
                     <h6 class="heading">Volunteer Help Wanted</h6>
                     <p>​In an effort to update the Town's zoning we are looking for a few individuals to sit on a committee. The committee will first be tasked with selecting a consulting firm to guide the committee though the review and update process. This zoning update will dovetail with the Town's new comprehensive plan and help guide the Town's development in the years to come Stop by or email the Town Supervisor with your contact information. </p>
                     <footer><a href="#">Read More &raquo;</a></footer>
                 </article>
-                </div>
+                </div> -->
                 <!-- ################################################################################################ -->
             </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Admin\ApplicationPagesController;
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\ArticleCategoriesController;
 use App\Http\Controllers\Admin\ContactsController;
@@ -28,33 +29,52 @@ use Inertia\Inertia;
 */
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('login.authenticate');
 
-Route::get('/', function () {
-    return Inertia::render('Main/Home', [
-        'canLogin' => Route::has('login'),
-        //'canLogin' => Route::get('/login', [LoginController::class, 'authenticate'])->name('login.authenticate'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Main/Home', [
+//         'canLogin' => Route::has('login'),
+//         //'canLogin' => Route::get('/login', [LoginController::class, 'authenticate'])->name('login.authenticate'),
+//         'canRegister' => Route::has('register'),
+//         //'laravelVersion' => Application::VERSION,
+//         //'phpVersion' => PHP_VERSION,
+//     ]);
+// });
+
+### Public Main ###
+Route::get('/', function () {return Inertia::render('Main/Home');});
 
 // Route::controller(LoginController::class)->group(function(){
 //     Route::get('/login', 'authenticate')->name('login.authenticate');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/user/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->name('dashboard');
 
-###Admin Grouping###
+### User Grouping ###
+Route::prefix('user')->name('user.')->middleware(['auth:sanctum', 'verified'])->group(function(){
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+});
+
+### Admin Grouping ###
 Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified'])->group(function(){
   Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    ###Applications Pages###
+    Route::controller(ApplicationPagesController::class)->group(function () {
+        Route::get('applicationpages/index', 'index')->name('applicationpages.index');
+        Route::get('applicationpages/edit/{article_id}', 'edit')->name('applicationpages.edit');
+        Route::put('applicationpages/update/{article_id}', 'update')->name('applicationpages.update');
+        Route::get('applicationpages/create', 'create')->name('applicationpages.create');
+        Route::post('applicationpages/store', 'store')->name('applicationpages.store');
+        Route::get('applicationpages/delete/{article_id}', 'delete')->name('applicationpages.delete');
+    });
 
     ###Articles###
     Route::controller(ArticlesController::class)->group(function () {
         Route::get('articles/index', 'index')->name('articles.index');
         Route::get('articles/edit/{article_id}', 'edit')->name('articles.edit');
         Route::put('articles/update/{article_id}', 'update')->name('articles.update');
+        Route::put('articles/update_categories/{article_id}', 'update_categories')->name('articles.update_categories');
         Route::get('articles/create', 'create')->name('articles.create');
         Route::post('articles/store', 'store')->name('articles.store');
         Route::get('articles/delete/{article_id}', 'delete')->name('articles.delete');

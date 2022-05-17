@@ -44,5 +44,11 @@ class HandleInertiaRequests extends Middleware
                 'departments' => DB::table('departments')->select('id', 'name')->get()
             ]
         ]);
+        return array_merge(parent::share($request), [
+            // Settings
+            'main' => [
+                'settings' => DB::table('settings')->select('id', 'key', 'value')->get()
+            ]
+        ]);
     }
 }

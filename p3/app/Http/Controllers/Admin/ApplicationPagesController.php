@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Redirect;
@@ -21,7 +22,7 @@ class ApplicationPagesController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/ApplicationPages/Index', []);
     }
 
     /**
